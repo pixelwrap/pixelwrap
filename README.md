@@ -14,4 +14,4 @@ It works out of the box with Laravel and Tailwind CSS, and we’re just getting 
 - Future adapters for popular frameworks coming soon!
 
 
-## [Get started here.](docs/readme.md)
+## [Get started here.](docs)
