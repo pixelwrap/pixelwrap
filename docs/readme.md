@@ -12,18 +12,20 @@ complex UIs to be built from smaller, manageable pieces.
 
 #### Components
 
-#### Heading and SubHeading (alias, Title, SubTitle)
+#### Heading
 
-The component is used to define titles, sub-titles or section headers within the UI.
+The component is used to define titles or section headers within the UI.
 **Attributes**:
 
 - **label** : Text content displayed, which can include dynamic placeholders.
+- **size**  : Size of the label. One of `smallest`, `smaller`, `small`, `big`, `bigger`, `biggest`.
 
 **Examples**:
 
 ```yaml
 -   type: Heading
     label: Social Media Influencers
+    size: biggest
 ```
 
 ```yaml
@@ -60,8 +62,8 @@ Attributes:
 
 ```yaml
 -   type: Row
-    gap: gap-x-6
-    margin: mt-6
+    gap: gap-small
+    margin: top-small
     nodes:
         -   type: Input
             id: product_name
@@ -95,7 +97,7 @@ Attributes:
     margin: mt-6
     nodes:
         -   type: Row
-            gap: gap-x-6
+            gap: x-small
             nodes:
                 -   type: Input
                     id: name
@@ -271,8 +273,8 @@ Attributes:
       nodes:
           - # Form components here
     - type: Row
-      gap: gap-x-6
-      margin: mt-4
+      gap: x-small
+      margin: top-big
       nodes:
         - type: Button
           role: submit
@@ -296,7 +298,7 @@ The TypeAhead component, also known as an autocomplete or suggestion input, is u
     id: destination
     route: search.center
     attach: urn
-    span: col-span-4
+    span: 4
     label: "Destination Center"
     debounce: 300
 ```
