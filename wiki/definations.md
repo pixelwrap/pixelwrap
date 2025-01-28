@@ -159,10 +159,10 @@ terms of its appearance, behavior, and associated actions.
 - **class** Style of the button (e.g., primary, secondary, danger, outlined). This control the button’s styling.
 - **action** Defines an action (like a route or event) that the button will trigger when clicked.
 - **role** Defines the purpose of the button. Common values include:
-    - **submit** Triggers a form submission (typically used in forms).
-    - **button** A generic button used for triggering any other action.
-    - **reset** Resets the form to its default values.
-    - **link** A button that behaves like a hyperlink, used to navigate to a route or page.
+  - **submit** Triggers a form submission (typically used in forms).
+  - **button** A generic button used for triggering any other action.
+  - **reset** Resets the form to its default values.
+  - **link** A button that behaves like a hyperlink, used to navigate to a route or page.
 
 **Examples**
 
@@ -251,14 +251,14 @@ The Select component (commonly referred to as a dropdown or combo box) allows us
     - java: "Java"
 ```
 
-#### Form 
+#### Form
 
 The Form component is the container for gathering and submitting user input. It groups multiple UI elements (like text inputs, buttons, and checkboxes) into a logical unit for easy management and submission. Forms are the backbone of user interaction in applications like registration forms, surveys, or any other scenario where user input is required.
 Attributes:
 
 - **id**: A unique identifier for the form, useful for references in scripts, validation logic, or for targeting the form in CSS styles.
 - **nodes**: An array of components that are part of the form. These can include sections, rows, inputs, buttons, etc.
- 
+
 
 ```yaml
 - type: Form
