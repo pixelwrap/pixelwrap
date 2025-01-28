@@ -13,10 +13,5 @@ It works out of the box with Laravel and Tailwind CSS, and we’re just getting 
 - Support for **Laravel** and **Tailwind CSS** out of the box.
 - Future adapters for popular frameworks coming soon!
 
-## Start Building:
-1. Install Vortex UI
-2. Create your first YAML schema
-3. Customize and generate your UI
 
-
-### [Get started here.](wiki/definations.md)
+## [Get started here.](wiki/definations.md)
