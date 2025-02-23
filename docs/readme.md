@@ -4,13 +4,29 @@ This schema defines a declarative structure for building flexible and responsive
 of reusable components, it enables rapid development of dynamic web applications. This documentation outlines the
 available components, their attributes, and how to use them effectively to construct your interfaces.
 
-#### Schema Structure
+### Introduction
+   YAML files are used to describe UI components such as headings, buttons, inputs, forms, tables, grids, rows, columns, and actions. Each component has specific attributes defined in camel case (except "type") that need to be specified within the YAML structure.
 
-The schema is structured as a tree of components. Each component is described using attributes that define its behavior,
-layout, and data interaction. Components are nested hierarchically within each other using the nodes property, allowing
-complex UIs to be built from smaller, manageable pieces.
+#### Basic Component Structure
+   A typical component definition starts with a type key followed by its properties:
+```yaml
+  - type: ComponentType
+    property1: value1
+    property2: value2
+```
 
-#### Components
+### Common Attributes Across Components
+They are used to defined shape and appearance of components. They are built by:
+- Basic sizes: [`none`, `smallest`, `smaller`, `small`, `big`, `bigger`, `biggest`]
+- Axes: [`x`, `y`]
+- Sides [`top`, `right`, `bottom`, `left`]
+   
+#### Common Props
+##### Actions
+Used for building links, form submissions.
+
+- link: Optional string containing a hyperlink. Can include dynamic parameters.
+- params List of key-value pairs for passing data through the action.
 
 #### Heading
 
