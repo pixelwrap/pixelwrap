@@ -2,7 +2,7 @@
 
 This schema defines a declarative structure for building flexible and responsive user interfaces. By using a collection
 of reusable components, it enables rapid development of dynamic web applications. This documentation outlines the
-available components, their attributes, and how to use them effectively to construct your interfaces.
+available components, their attributes, and how to use them effectively to construct your ui.
 
 ### Introduction
    YAML files are used to describe UI components such as headings, buttons, inputs, forms, tables, grids, rows, columns, and actions. Each component has specific attributes defined in camel case (except "type") that need to be specified within the YAML structure.  
@@ -37,29 +37,35 @@ Compound components validate and apply layout utilities like alignment, justific
 
 The following components are available in PixelWrap:
 
-- [Heading](#heading)
-- [Row](#row)
-- [Section](#section)
-- [HorizontalRuler](#horizontal-ruler)
-- [Input](#input)
-- [Button](#button)
-- [Badge](#badge)
-- [Table](#table)
-- [Select](#select)
-- [Form](#form)
-- [TypeAhead](#typeahead)
-- [Breadcrumb](#breadcrumb)
-- [Card](#card)
-- [Modal](#modal)
-- [Listing](#listing)
-- [Progress](#progress)
-- [PlaceHolder](#placeholder)
-- [Sidebar](#sidebar)
-- [Navbar](#navbar)
-- [PixelIcon](#pixelicon)
-- [Tab](#tab)
-- [Tabs](#tabs)
 - [View](#view)
+- [Text](#text)
+- [PlaceHolder](#placeholder)
+- [Tabs](#tabs)
+- [Tab](#tab)
+- [Progress](#progress)
+- [PixelIcon](#pixelicon)
+- [Navbar](#navbar)
+- [Sidebar](#sidebar)
+- [Image](#image)
+- [TypeAhead](#typeahead)
+- [Form](#form)
+- [Table](#table)
+- [Field](#field)
+- [Select](#select)
+- [Button](#button)
+- [TextArea](#textarea)
+- [Input](#input)
+- [HorizontalRuler](#horizontal-ruler)
+- [Section](#section)
+- [Column](#column)
+- [Row](#row)
+- [Grid](#grid)
+- [Heading](#heading)
+- [Listing](#listing)
+- [Modal](#modal)
+- [Card](#card)
+- [Breadcrumb](#breadcrumb)
+- [Timeline](#timeline)
 
 ---
 
