@@ -17,11 +17,148 @@ available components, their attributes, and how to use them effectively to const
 ```
 Example using the Button component:
 ```yaml
-  - type: Button
-    label: "Click Me"
-    class: primary
-    role: button
+- type: Button
+  label: "Click Me"
+  class: primary
+  role: button
 ```
+
+# Real-World Examples
+
+These examples demonstrate PixelWrap schemas and integrations from live projects.
+
+## Acura ERP Dashboard
+
+An example dashboard schema from the Acura ERP project (`resources/pixelwrap/dashboard/dashboard.yaml`):
+
+```yaml
+- type: Heading
+  margin: bottom-smaller top-smallest
+  label: "Dashboard"
+- type: Listing
+  gap: smaller
+  dataset: items
+  nodes:
+    - type: Card
+      label: "{label}"
+      margin: none
+      span: small-full medium-half large-quarter
+      nodes:
+        - type: Text
+          label: "{value}"
+```
+
+In the Blade layout (e.g. `resources/views/layouts/app.blade.php`), render the PixelWrap container:
+
+```blade
+@section('content')
+    {{-- other content --}}
+    @yield('pixelwrap-container')
+@endsection
+```
+
+## Fleetr Dashboard & Onboarding
+
+### Dashboard Card Layout
+
+Example YAML from Fleetr (`resources/pixelwrap/dashboard/dashboard.yaml`):
+
+```yaml
+- type: Heading
+  margin: bottom-smaller
+  label: "Dashboard"
+- type: Listing
+  gap: smaller
+  dataset: items
+  nodes:
+    - type: Card
+      showLabel: false
+      padding: smaller
+      span: half medium-third large-quarter
+      nodes:
+        - type: Row
+          align: center
+          gap: x-small
+          nodes:
+            - type: Icon
+              name: "{icon}"
+              size: smaller
+            - type: Column
+              gap: none
+              nodes:
+                - type: Heading
+                  label: "{value}"
+                  size: small
+                - type: Heading
+                  label: "{label}"
+                  size: smaller
+```
+
+### Onboarding CTA Example
+
+Render a PixelWrap component inline within a Blade view (`resources/views/vehicle/onboarding.blade.php`):
+
+```blade
+{!! pixelwrap()
+     ->renderComponent([
+         'type'   => 'Button',
+         'role'   => 'link',
+         'label'  => 'Add Vehicle',
+         'icon'   => 'plus',
+         'action' => (object)[
+             'route'  => 'vehicle.create',
+             'params' => ['account' => request()->user()->accounts()->first()->id ?? 1]
+         ]
+     ])
+!!}
+```
+
+### Auth Flow Example
+
+Using PixelWrap to render the user registration form in `resources/views/auth/register.blade.php`:
+
+```blade
+{!! pixelwrap()->render("user/register") !!}
+```
+
+## Laravel Helper Functions
+
+PixelWrap ships global helper functions for easy rendering and integration in Laravel apps.
+
+- **pixelwrap()**: Returns the `PixelWrapRenderer` service instance from the container.
+- **renderPixelWrapPage(string $page, array $data = [])**: Alias for `app('pixelwrap')->render($page, $data)` that returns a Blade `View`.
+- **pixelwrap()->render(string $page, array $data = []): string**: Render a YAML schema file located at `resources/pixelwrap/{page}.yaml`.
+- **pixelwrap()->renderComponent(array $component): string**: Render a single inline component definition without a separate schema file.
+- **pixelwrap_resource(string $path = null): string**: Get the base path (or a subpath) to the `resources/pixelwrap` directory.
+- **pixel_insert_icon(string $icon): string**: Load raw SVG contents for an icon from the configured icon paths.
+
+## FileController Usage
+
+The `FileController` (in `src/Controllers/FileController.php`) extends `PixelController` to provide a standard CRUD interface for Eloquent models using YAML schemas:
+
+```php
+class FileController extends PixelController
+{
+    protected $class = Model::class;        // Eloquent model class to manage
+    protected $authorization = false;       // Toggle auth checks
+    protected $perPage = 15;               // Default pagination size
+
+    public function index()   // Renders the 'listing' schema with paginate()
+    public function create()  // Renders the 'create' schema
+    public function store()   // Persists a new record and redirects
+    public function edit()    // Renders the 'edit' schema
+    public function show()    // Renders the 'show' schema
+    public function update()  // Updates the model and redirects back
+    public function destroy() // Deletes the model and redirects
+}
+```
+
+## Reference: Theme Tokens
+
+Abstract tokens for spacing, sizing, rounding, and typography are defined in the Tailwind theme definitions (e.g., `vendor/pixelwrap/tailwind/src/definitions.php`). To regenerate this list, extract the array keys only:
+
+
+See [Token Reference](tokens.md) for the current list of theme‑independent tokens.
 
 ### Common Attributes Across Components
 
